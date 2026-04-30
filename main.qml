@@ -169,25 +169,59 @@ ApplicationWindow{
 
 
         /*2 eme partie: afficher les choses dans le fichier*/
-        Rectangle{
+        Rectangle {
             width: parent.width
             height: parent.height / 2
             color: "#f5f5f5"
-            Column
-            {
-                anchors.fill : parent
-                Text{
-                    text: "Liste des inscrits:"
+
+            Column {
+                anchors.fill: parent
+                anchors.margins: 8
+                spacing: 6
+
+                Text {
+                    text: "Liste des inscrits :"
                     font.bold: true
                     anchors.horizontalCenter: parent.horizontalCenter
                 }
-                /*afficher les Listes*/
-                Text{
-                    //attend le signal vers ajouter
-                    text: Backend.listeModel
-                }
 
+                ScrollView {
+                    width: parent.width          // ← doit avoir width explicite
+                    height: parent.height - 30   // ← doit avoir height explicite
+                    clip: true
+
+                    ListView {
+                        id: liste_view
+                        width: parent.width      // ← ajouter width ici
+                        height: parent.height    // ← ajouter height ici
+                        model: Backend.listeModel
+                        spacing: 4
+
+                        delegate: Rectangle {
+                            width: liste_view.width
+                            height: 36
+                            radius: 4
+                            color: liste_view.currentIndex === index
+                                   ? "#bbdefb"
+                                   : (index % 2 === 0 ? "#ffffff" : "#eeeeee")
+
+                            Text {
+                                anchors.verticalCenter: parent.verticalCenter
+                                anchors.left: parent.left
+                                anchors.leftMargin: 12
+                                text: modelData   // ← affiche "[0]  Alice  —  pass1"
+                                font.pixelSize: 13
+                            }
+
+                            MouseArea {
+                                anchors.fill: parent
+                                onClicked: liste_view.currentIndex = index
+                            }
+                        }
+                    }
+                }
             }
+
         }
     }
 }

@@ -22,10 +22,14 @@ class Backend : public QObject
 public:
     explicit Backend(QObject *parent = nullptr);
 
+    void sauvegarderFichier();
+    void chargerFichier();
     QStringList listeModel() const;
     QString     message()    const;
 
 public slots:
+    //recharger d'abord le fichier dans la liste
+
     Q_INVOKABLE void ajouter(const QString &nom, const QString &password);
     Q_INVOKABLE void supprimer(const QString &nom);
     Q_INVOKABLE void ajouter_position(const QString &nom,

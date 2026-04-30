@@ -23,6 +23,7 @@ void Backend::chargerFichier()
     QTextStream in(&f);
     while (!in.atEnd()) {
         QString ligne = in.readLine().trimmed();
+        //reconstruire le modèle
         if (ligne.isEmpty()) continue;
 
         QStringList parts = ligne.split(",");
@@ -41,11 +42,21 @@ void Backend::chargerFichier()
 QStringList Backend::listeModel() const
 {
     QStringList result;
-    for (int i = 0; i < liste_personne.size(); ++i)
+    QVector <Personne> source;
+    if (liste_personne_recherche.isEmpty())
+    {
+        source = liste_personne;
+    }
+    else
+    {
+        source = liste_personne_recherche ;
+    }
+
+    for (int i = 0; i < source.size(); ++i)
         result << QString("[%1]  %2  —  %3")
                       .arg(i)
-                      .arg(liste_personne[i].getNom())
-                      .arg(liste_personne[i].getPassword()); // ← ajouter le password
+                      .arg(source[i].getNom())
+                      .arg(source[i].getPassword());
     return result;
 }
 
@@ -66,16 +77,12 @@ void Backend::sauvegarderFichier()
     qDebug() << "Fichier sauvegardé.";
 }
 
-QString Backend::message() const
-{
-    return m_message;
-}
 
 // ── Ajouter à la fin ──────────────────────────────────────────────
 void Backend::ajouter(const QString &nom, const QString &password)
 {
     // 1. Vérifier D'ABORD
-    if (nom.trimmed().isEmpty()) {
+    /*if (nom.trimmed().isEmpty()) {
         setMessage("Erreur : nom vide.");
         return;
     }
@@ -86,17 +93,15 @@ void Backend::ajouter(const QString &nom, const QString &password)
             setMessage("Erreur : \"" + nom + "\" existe déjà.");
             return;
         }
-    }
+    }*/
 
     // 3. Ajouter SEULEMENT si tout est bon
     liste_personne.append(Personne(nom, password));
     cout << liste_personne.last().getNom().toStdString() << endl;
 
-
     sauvegarderFichier();
     emit listeChanged();   /*ListView se rafraichit*/
-    /* et affichage dans liste_scroll_bar*/
-    setMessage("OK : \"" + nom + "\" ajouté.");
+
 }
 
 
@@ -111,12 +116,10 @@ void Backend::supprimer(const QString &nom)
 
                 sauvegarderFichier();
                 emit listeChanged();
-
-                setMessage("OK : \"" + nom + "\" supprimé.");
                 return;
             }
         }
-    setMessage("Erreur : \"" + nom + "\" introuvable.");
+
 }
 void Backend::supprimer_all(const QString &nom)
 {
@@ -127,7 +130,7 @@ void Backend::supprimer_all(const QString &nom)
     }
     sauvegarderFichier();
     emit listeChanged();
-    setMessage("Erreur : \"" + nom + "\" introuvable.");
+
 }
 
 // ── Ajouter à une position ────────────────────────────────────────
@@ -136,44 +139,39 @@ void Backend::ajouter_position(const QString &nom,
                                int pos)
 {
     //trimmed() supprimer les espaces au début et à la fin:
-    if (nom.trimmed().isEmpty()) {
+    /*if (nom.trimmed().isEmpty()) {
         setMessage("Erreur : nom vide.");
         return;
-    }
+    }*/
 
-    for (const Personne &p : liste_personne) {
+    /*for (const Personne &p : liste_personne) {
         if (p.getNom() == nom) {
             setMessage("Erreur : \"" + nom + "\" existe déjà.");
             return;
         }
-    }
+    }*/
     Personne p = Personne (nom, password);
     liste_personne.insert(liste_personne.begin()+pos, p);
 
     //insertion
     emit listeChanged();
 
-
-   /* setMessage("OK : \"" + nom + "\" inséré à la position "
-               + QString::number(index) + ".");*/
 }
 
-// ── Rechercher ────────────────────────────────────────────────────
+// ── Rechercher :
 void Backend::rechercher(const QString &nom)
 {
+    /*nouveau fichier*/
+    /*quand on clique sur suivant: tab*/
+
+    liste_personne_recherche.clear();
+    //sauvegarde dans un autre  fichier
     for (int i = 0; i < liste_personne.size(); ++i) {
         if (liste_personne[i].getNom() == nom) {
-            setMessage("OK : \"" + nom + "\" trouvé à la position "
-                       + QString::number(i) + ".");
-            return;
+            liste_personne_recherche.append(liste_personne[i]);
         }
     }
-    setMessage("Erreur : \"" + nom + "\" introuvable.");
-}
+    emit listeChanged();
+    liste_personne_recherche.clear();
 
-// ── Utilitaire privé ──────────────────────────────────────────────
-void Backend::setMessage(const QString &msg)
-{
-    m_message = msg;
-    emit messageChanged();
 }

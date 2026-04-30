@@ -18,20 +18,6 @@
                         "stored": true,
                         "type": "QStringList",
                         "user": false
-                    },
-                    {
-                        "constant": false,
-                        "designable": true,
-                        "final": false,
-                        "index": 1,
-                        "name": "message",
-                        "notify": "messageChanged",
-                        "read": "message",
-                        "required": false,
-                        "scriptable": true,
-                        "stored": true,
-                        "type": "QString",
-                        "user": false
                     }
                 ],
                 "qualifiedClassName": "Backend",
@@ -39,11 +25,6 @@
                     {
                         "access": "public",
                         "name": "listeChanged",
-                        "returnType": "void"
-                    },
-                    {
-                        "access": "public",
-                        "name": "messageChanged",
                         "returnType": "void"
                     }
                 ],

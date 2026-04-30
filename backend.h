@@ -15,17 +15,13 @@ class Backend : public QObject
                    READ listeModel
                        NOTIFY listeChanged)
 
-    Q_PROPERTY(QString message
-                   READ message
-                       NOTIFY messageChanged)
-
 public:
     explicit Backend(QObject *parent = nullptr);
 
     void sauvegarderFichier();
     void chargerFichier();
     QStringList listeModel() const;
-    QString     message()    const;
+
 
 public slots:
     //recharger d'abord le fichier dans la liste
@@ -41,13 +37,12 @@ public slots:
 
 signals:
     void listeChanged();
-    void messageChanged();
 
 private:
     QVector<Personne> liste_personne;
     QString           m_message;
+    QVector<Personne> liste_personne_recherche;
 
-    void setMessage(const QString &msg);
 };
 
 #endif

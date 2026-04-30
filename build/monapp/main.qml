@@ -11,6 +11,15 @@ ApplicationWindow{
     width: 700
     height: 700
     Material.theme: Material.Light
+    Dialog{
+        id: dialog
+        modal: true
+        standardButtons: Dialog.Ok
+        property string message: ""  //on peut modifier
+        contentItem: Text{
+            text: dialog.message
+        }
+    }
     menuBar:MenuBar{
         Menu{
             title: qsTr("Raccourcis")
@@ -79,16 +88,6 @@ ApplicationWindow{
                     }
                }
             }
-            Dialog{
-                id: dialog
-                modal: true
-                standardButtons: Dialog.Ok
-                property string message: ""  //on peut modifier
-                contentItem: Text{
-                    text: dialog.message
-                }
-            }
-
             Rectangle{
                 /*Créer des boutons rechercher, supprimer , ajouter à une position->demander une position*/
                 width: parent.width / 2 - 5
@@ -187,6 +186,7 @@ ApplicationWindow{
                                 )
                             pos_nom.text = ""
                             pos_index.text = ""
+                            pos_password=""
                         }
                     }
 
@@ -204,9 +204,11 @@ ApplicationWindow{
                         text: "Rechercher"
                         onClicked: {
                             if (search_nom.text !== "")
+                                /*recherche depuis le début et qu'on on appuie sur tab: suivant*/
                                 Backend.rechercher(search_nom.text)
                         }
                     }
+
                     /*==========================*/
 
                 }
@@ -234,14 +236,14 @@ ApplicationWindow{
                 }
 
                 ScrollView {
-                    width: parent.width          // ← doit avoir width explicite
-                    height: parent.height - 30   // ← doit avoir height explicite
+                    width: parent.width
+                    height: parent.height - 30
                     clip: true
 
                     ListView {
                         id: liste_view
-                        width: parent.width      // ← ajouter width ici
-                        height: parent.height    // ← ajouter height ici
+                        width: parent.width
+                        height: parent.height
                         model: Backend.listeModel
                         spacing: 4
 
@@ -267,6 +269,7 @@ ApplicationWindow{
                             }
                         }
                     }
+                    /*ListView pour la recherche: */
                 }
             }
         }

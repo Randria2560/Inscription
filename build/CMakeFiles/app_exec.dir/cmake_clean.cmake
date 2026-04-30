@@ -1,0 +1,40 @@
+file(REMOVE_RECURSE
+  ".rcc/qmlcache/app_exec_main_qml.cpp"
+  ".rcc/qmlcache/app_exec_qmlcache_loader.cpp"
+  ".rcc/qrc_app_exec_raw_qml_0.cpp"
+  ".rcc/qrc_qmake_monapp.cpp"
+  "CMakeFiles/app_exec_autogen.dir/AutogenUsed.txt"
+  "CMakeFiles/app_exec_autogen.dir/ParseCache.txt"
+  "app_exec_autogen"
+  "CMakeFiles/app_exec.dir/app_exec_autogen/mocs_compilation.cpp.o"
+  "CMakeFiles/app_exec.dir/app_exec_autogen/mocs_compilation.cpp.o.d"
+  "CMakeFiles/app_exec.dir/app_exec_qmltyperegistrations.cpp.o"
+  "CMakeFiles/app_exec.dir/app_exec_qmltyperegistrations.cpp.o.d"
+  "CMakeFiles/app_exec.dir/backend.cpp.o"
+  "CMakeFiles/app_exec.dir/backend.cpp.o.d"
+  "CMakeFiles/app_exec.dir/build/.rcc/qmlcache/app_exec_main_qml.cpp.o"
+  "CMakeFiles/app_exec.dir/build/.rcc/qmlcache/app_exec_main_qml.cpp.o.d"
+  "CMakeFiles/app_exec.dir/build/.rcc/qmlcache/app_exec_qmlcache_loader.cpp.o"
+  "CMakeFiles/app_exec.dir/build/.rcc/qmlcache/app_exec_qmlcache_loader.cpp.o.d"
+  "CMakeFiles/app_exec.dir/build/.rcc/qrc_app_exec_raw_qml_0.cpp.o"
+  "CMakeFiles/app_exec.dir/build/.rcc/qrc_app_exec_raw_qml_0.cpp.o.d"
+  "CMakeFiles/app_exec.dir/build/.rcc/qrc_qmake_monapp.cpp.o"
+  "CMakeFiles/app_exec.dir/build/.rcc/qrc_qmake_monapp.cpp.o.d"
+  "CMakeFiles/app_exec.dir/main.cpp.o"
+  "CMakeFiles/app_exec.dir/main.cpp.o.d"
+  "CMakeFiles/app_exec.dir/personne.cpp.o"
+  "CMakeFiles/app_exec.dir/personne.cpp.o.d"
+  "app_exec"
+  "app_exec.pdb"
+  "app_exec_autogen/mocs_compilation.cpp"
+  "app_exec_autogen/timestamp"
+  "app_exec_qmltyperegistrations.cpp"
+  "meta_types/qt6app_exec_metatypes.json"
+  "meta_types/qt6app_exec_metatypes.json.gen"
+  "monapp/app_exec.qmltypes"
+)
+
+# Per-language clean rules from dependency scanning.
+foreach(lang CXX)
+  include(CMakeFiles/app_exec.dir/cmake_clean_${lang}.cmake OPTIONAL)
+endforeach()

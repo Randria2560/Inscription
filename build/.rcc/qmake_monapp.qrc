@@ -1,0 +1,6 @@
+<RCC>
+  <qresource prefix="/monapp">
+    <file alias="qmldir">/home/natacha/monprojet/build/monapp/qmldir</file>
+  </qresource>
+</RCC>
+

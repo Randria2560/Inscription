@@ -1,0 +1,6 @@
+<RCC>
+  <qresource prefix="/monapp/">
+    <file alias="main.qml">/home/natacha/monprojet/main.qml</file>
+  </qresource>
+</RCC>
+

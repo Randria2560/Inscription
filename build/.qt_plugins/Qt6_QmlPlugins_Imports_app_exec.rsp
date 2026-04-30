@@ -1,0 +1,14 @@
+-rootPath
+/home/natacha/monprojet
+-cmake-output
+-output-file
+/home/natacha/monprojet/build/.qt_plugins/Qt6_QmlPlugins_Imports_app_exec.cmake
+-importPath
+/home/natacha/monprojet/build/monapp
+-importPath
+/home/natacha/monprojet/build
+-importPath
+/usr/lib/x86_64-linux-gnu/qt6/qml
+-qrcFiles
+/home/natacha/monprojet/build/.rcc/qmake_monapp.qrc
+/home/natacha/monprojet/build/.rcc/app_exec_raw_qml_0.qrc

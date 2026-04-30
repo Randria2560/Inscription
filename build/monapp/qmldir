@@ -1,0 +1,4 @@
+module monapp
+typeinfo app_exec.qmltypes
+prefer :/monapp/
+

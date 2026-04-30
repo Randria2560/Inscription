@@ -1,0 +1,193 @@
+import QtQuick 2.12
+import QtQuick.Window 2.2
+import QtQuick.Layouts 1.3
+import QtQuick.Controls 2.12
+
+
+ApplicationWindow{
+    visible: true
+    title: qsTr("MyBD sur l'inscription")
+    width: 700
+    height: 700
+    menuBar:MenuBar{
+        Menu{
+            title: qsTr("Raccourcis")
+            MenuItem{
+                text:qsTr("Copy")
+            }
+            MenuItem{
+                text:qsTr("Cut")
+            }
+            MenuItem{
+                text:qsTr("Paste")
+            }
+            MenuItem{
+                text:qsTr("Select All")
+            }
+        }
+        Menu{
+            title:qsTr("File")
+            MenuItem{
+                text:qsTr("Open")
+            }
+            MenuItem{
+                text:qsTr("Save as")
+            }
+            MenuItem{
+                text:qsTr("Save")
+            }
+            MenuItem{
+                text:qsTr("Ouvrir")
+            }
+        }
+    }
+    //srollbar et fromulaire ajouter et supprimer:
+
+    Column {
+        anchors.fill: parent
+        spacing: 5
+        Row {
+            width: parent.width
+            height: parent.height / 2
+            spacing: 10
+            Rectangle{
+                width: parent.width /2-5
+                height: parent.height
+                color: "#e3f2fd"
+                Column
+                {
+                    anchors.fill:parent
+                    spacing: 5
+                    Text{
+                        text:"Ajouter";
+                        font.bold: true
+                    }
+                    TextField {
+                        id: input_nom
+                        placeholderText: "Nom" }
+                    TextField {
+                        id: input_password
+                        placeholderText: "password" }
+
+                    Button {
+                        text: "Ajouter"   /*ajouter à la fin*/
+                        onClicked: {
+                            Backend.ajouter(input_nom.text, input_password.text)
+                        }
+                    }
+               }
+            }
+            Rectangle{
+                /*Créer des boutons rechercher, supprimer , ajouter à une position->demander une position*/
+                width: parent.width / 2 - 5
+                height: parent.height
+                color: "#ffebee"
+                ScrollView{
+                    anchors.fill : parent
+                    contentWidth: parent.width
+
+                Column {
+                    anchors.fill: parent
+                    width: parent.width
+                    anchors.margins: 10
+                    spacing: 10
+                    //non encore une classe mais QString
+                    /*=================Supprimer==========================================*/
+                    Text { text: "Supprimer"; font.bold: true }
+
+                        TextField {
+                            id: delete_nom
+                            width: parent.width - 20
+                            placeholderText: "Nom à supprimer"
+                        }
+                        Button {
+                            text: "Supprimer"
+                            onClicked: {
+                                if (delete_nom.text !== "")
+                                    Backend.supprimer(delete_nom.text)
+                            }
+                        }
+                    /*=================Ajouter à une position===========================================*/
+                    Text { text: "Ajouter à une position"; font.bold: true }
+                    TextField{
+                        id: pos_nom
+                        width: parent.width - 20
+                        placeholderText: "Nom à entrer"
+                    }
+                    TextField{
+                        id: pos_password
+                        width:parent.width - 20
+                        placeholderText: "password"
+                        echoMode: TextInput.Password
+                    }
+                    TextField{
+                        /*Vérifier que ce soit un digit*/
+                        id:pos_index
+                        width: parent.width - 20
+                        placeholderText: "pos_index"
+                        /*Ajouter le validator*/
+                    }
+
+                    Button {
+                        text: "Ajouter à la position"
+                        onClicked:{
+                            if (pos_nom.text !== "" && pos_index.text !== "")
+                                Backend.ajouter_position(
+                                    pos_nom.text,
+                                    pos_password.text,
+                                    parseInt(pos_index.text)
+                                )
+                            pos_nom.text = ""
+                            pos_index.text = ""
+                        }
+                    }
+
+
+                    /*=================Rechercher =========================================*/
+                    Text { text: "Rechercher"; font.bold: true }
+
+                    TextField {
+                        id: search_nom
+                        width: parent.width - 20
+                        placeholderText: "Nom à rechercher"
+                    }
+
+                    Button {
+                        text: "Rechercher"
+                        onClicked: {
+                            if (search_nom.text !== "")
+                                Backend.rechercher(search_nom.text)
+                        }
+                    }
+                    /*==========================*/
+
+                }
+
+                }
+            }
+        }
+
+
+        /*2 eme partie: afficher les choses dans le fichier*/
+        Rectangle{
+            width: parent.width
+            height: parent.height / 2
+            color: "#f5f5f5"
+            Column
+            {
+                anchors.fill : parent
+                Text{
+                    text: "Liste des inscrits:"
+                    font.bold: true
+                    anchors.horizontalCenter: parent.horizontalCenter
+                }
+                /*afficher les Listes*/
+                Text{
+                    //attend le signal vers ajouter
+                    text: Backend.listeModel
+                }
+
+            }
+        }
+    }
+}

@@ -346,6 +346,10 @@ CMakeFiles/app_exec.dir/main.cpp.o: /home/natacha/monprojet/main.cpp \
  /usr/include/x86_64-linux-gnu/qt6/QtQmlIntegration/qqmlintegration.h \
  /usr/include/x86_64-linux-gnu/qt6/QtQml/qqmlerror.h \
  /usr/include/x86_64-linux-gnu/qt6/QtQml/qqmlabstracturlinterceptor.h \
+ /usr/include/x86_64-linux-gnu/qt6/QtQuickControls2/QQuickStyle \
+ /usr/include/x86_64-linux-gnu/qt6/QtQuickControls2/qquickstyle.h \
+ /usr/include/x86_64-linux-gnu/qt6/QtQuickControls2/qtquickcontrols2global.h \
+ /usr/include/x86_64-linux-gnu/qt6/QtQuickControls2/qtquickcontrols2exports.h \
  /usr/include/x86_64-linux-gnu/qt6/QtQml/QQmlContext \
  /usr/include/x86_64-linux-gnu/qt6/QtQml/qqmlcontext.h \
  /home/natacha/monprojet/backend.h \

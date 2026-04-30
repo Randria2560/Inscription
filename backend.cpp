@@ -3,6 +3,7 @@
 #include <QFile>
 #include <QTextStream>
 #include <QDebug>
+
 using namespace std;
 QString fichier = "/home/natacha/monprojet/data.csv";
 
@@ -98,24 +99,34 @@ void Backend::ajouter(const QString &nom, const QString &password)
     setMessage("OK : \"" + nom + "\" ajouté.");
 }
 
-/*================================================*/
-
-
-
-
-
 
 // ── Supprimer ─────────────────────────────────────────────────────
 void Backend::supprimer(const QString &nom)
 {
+    /*Ajouter une option si select all ou bien un seule à la fois*/
+
+        for (int i = 0; i < liste_personne.size(); ++i) {
+            if (liste_personne[i].getNom().toLower() == nom .toLower()) {
+                liste_personne.removeAt(i);
+
+                sauvegarderFichier();
+                emit listeChanged();
+
+                setMessage("OK : \"" + nom + "\" supprimé.");
+                return;
+            }
+        }
+    setMessage("Erreur : \"" + nom + "\" introuvable.");
+}
+void Backend::supprimer_all(const QString &nom)
+{
     for (int i = 0; i < liste_personne.size(); ++i) {
-        if (liste_personne[i].getNom() == nom) {
+        if (liste_personne[i].getNom().toLower() == nom .toLower()) {
             liste_personne.removeAt(i);
-            emit listeChanged();
-            setMessage("OK : \"" + nom + "\" supprimé.");
-            return;
         }
     }
+    sauvegarderFichier();
+    emit listeChanged();
     setMessage("Erreur : \"" + nom + "\" introuvable.");
 }
 
@@ -124,6 +135,7 @@ void Backend::ajouter_position(const QString &nom,
                                const QString &password,
                                int pos)
 {
+    //trimmed() supprimer les espaces au début et à la fin:
     if (nom.trimmed().isEmpty()) {
         setMessage("Erreur : nom vide.");
         return;
@@ -135,12 +147,15 @@ void Backend::ajouter_position(const QString &nom,
             return;
         }
     }
+    Personne p = Personne (nom, password);
+    liste_personne.insert(liste_personne.begin()+pos, p);
 
-    int index = qBound(0, pos, liste_personne.size());
-    liste_personne.insert(index, Personne(nom, password));
+    //insertion
     emit listeChanged();
-    setMessage("OK : \"" + nom + "\" inséré à la position "
-               + QString::number(index) + ".");
+
+
+   /* setMessage("OK : \"" + nom + "\" inséré à la position "
+               + QString::number(index) + ".");*/
 }
 
 // ── Rechercher ────────────────────────────────────────────────────

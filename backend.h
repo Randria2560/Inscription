@@ -32,6 +32,8 @@ public slots:
 
     Q_INVOKABLE void ajouter(const QString &nom, const QString &password);
     Q_INVOKABLE void supprimer(const QString &nom);
+     Q_INVOKABLE void supprimer_all(const QString &nom);
+
     Q_INVOKABLE void ajouter_position(const QString &nom,
                                       const QString &password,
                                       int pos);

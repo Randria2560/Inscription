@@ -1,15 +1,17 @@
 #include <QGuiApplication>
 #include <QQmlApplicationEngine>
+#include <QQuickStyle>
 #include <QQmlContext>
 #include "backend.h"
 
 int main(int argc, char *argv[])
 {
     QGuiApplication app(argc, argv);
-    QQmlApplicationEngine engine;
+    QQuickStyle::setStyle("Fusion");  // ← forcer le style clair
 
     Backend backend;
 
+    QQmlApplicationEngine engine;
     // ← CETTE LIGNE doit être AVANT engine.load
     engine.rootContext()->setContextProperty("Backend", &backend);
 

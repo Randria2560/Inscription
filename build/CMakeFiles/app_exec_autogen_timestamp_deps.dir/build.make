@@ -67,9 +67,9 @@ include CMakeFiles/app_exec_autogen_timestamp_deps.dir/compiler_depend.make
 include CMakeFiles/app_exec_autogen_timestamp_deps.dir/progress.make
 
 CMakeFiles/app_exec_autogen_timestamp_deps: .rcc/qmlcache/app_exec_qmlcache_loader.cpp
-CMakeFiles/app_exec_autogen_timestamp_deps: /usr/lib/x86_64-linux-gnu/libQt6Quick.so.6.4.2
 CMakeFiles/app_exec_autogen_timestamp_deps: /usr/lib/qt6/libexec/moc
 CMakeFiles/app_exec_autogen_timestamp_deps: /usr/lib/x86_64-linux-gnu/libQt6Qml.so.6.4.2
+CMakeFiles/app_exec_autogen_timestamp_deps: /usr/lib/x86_64-linux-gnu/libQt6Quick.so.6.4.2
 CMakeFiles/app_exec_autogen_timestamp_deps: /usr/lib/x86_64-linux-gnu/libQt6QuickControls2.so.6.4.2
 
 .rcc/qmlcache/app_exec_qmlcache_loader.cpp: /usr/lib/qt6/libexec/qmlcachegen

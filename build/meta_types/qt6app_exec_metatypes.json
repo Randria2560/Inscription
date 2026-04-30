@@ -80,6 +80,17 @@
                             {
                                 "name": "nom",
                                 "type": "QString"
+                            }
+                        ],
+                        "name": "supprimer_all",
+                        "returnType": "void"
+                    },
+                    {
+                        "access": "public",
+                        "arguments": [
+                            {
+                                "name": "nom",
+                                "type": "QString"
                             },
                             {
                                 "name": "password",

@@ -26,7 +26,7 @@ QT_WARNING_PUSH
 QT_WARNING_DISABLE_DEPRECATED
 namespace {
 struct qt_meta_stringdata_Backend_t {
-    uint offsetsAndSizes[26];
+    uint offsetsAndSizes[28];
     char stringdata0[8];
     char stringdata1[13];
     char stringdata2[1];
@@ -35,11 +35,12 @@ struct qt_meta_stringdata_Backend_t {
     char stringdata5[4];
     char stringdata6[9];
     char stringdata7[10];
-    char stringdata8[17];
-    char stringdata9[4];
-    char stringdata10[11];
+    char stringdata8[14];
+    char stringdata9[17];
+    char stringdata10[4];
     char stringdata11[11];
-    char stringdata12[8];
+    char stringdata12[11];
+    char stringdata13[8];
 };
 #define QT_MOC_LITERAL(ofs, len) \
     uint(sizeof(qt_meta_stringdata_Backend_t::offsetsAndSizes) + ofs), len 
@@ -53,11 +54,12 @@ Q_CONSTINIT static const qt_meta_stringdata_Backend_t qt_meta_stringdata_Backend
         QT_MOC_LITERAL(45, 3),  // "nom"
         QT_MOC_LITERAL(49, 8),  // "password"
         QT_MOC_LITERAL(58, 9),  // "supprimer"
-        QT_MOC_LITERAL(68, 16),  // "ajouter_position"
-        QT_MOC_LITERAL(85, 3),  // "pos"
-        QT_MOC_LITERAL(89, 10),  // "rechercher"
-        QT_MOC_LITERAL(100, 10),  // "listeModel"
-        QT_MOC_LITERAL(111, 7)   // "message"
+        QT_MOC_LITERAL(68, 13),  // "supprimer_all"
+        QT_MOC_LITERAL(82, 16),  // "ajouter_position"
+        QT_MOC_LITERAL(99, 3),  // "pos"
+        QT_MOC_LITERAL(103, 10),  // "rechercher"
+        QT_MOC_LITERAL(114, 10),  // "listeModel"
+        QT_MOC_LITERAL(125, 7)   // "message"
     },
     "Backend",
     "listeChanged",
@@ -67,6 +69,7 @@ Q_CONSTINIT static const qt_meta_stringdata_Backend_t qt_meta_stringdata_Backend
     "nom",
     "password",
     "supprimer",
+    "supprimer_all",
     "ajouter_position",
     "pos",
     "rechercher",
@@ -82,22 +85,23 @@ Q_CONSTINIT static const uint qt_meta_data_Backend[] = {
       10,       // revision
        0,       // classname
        0,    0, // classinfo
-       6,   14, // methods
-       2,   70, // properties
+       7,   14, // methods
+       2,   79, // properties
        0,    0, // enums/sets
        0,    0, // constructors
        0,       // flags
        2,       // signalCount
 
  // signals: name, argc, parameters, tag, flags, initial metatype offsets
-       1,    0,   50,    2, 0x06,    3 /* Public */,
-       3,    0,   51,    2, 0x06,    4 /* Public */,
+       1,    0,   56,    2, 0x06,    3 /* Public */,
+       3,    0,   57,    2, 0x06,    4 /* Public */,
 
  // slots: name, argc, parameters, tag, flags, initial metatype offsets
-       4,    2,   52,    2, 0x0a,    5 /* Public */,
-       7,    1,   57,    2, 0x0a,    8 /* Public */,
-       8,    3,   60,    2, 0x0a,   10 /* Public */,
-      10,    1,   67,    2, 0x0a,   14 /* Public */,
+       4,    2,   58,    2, 0x0a,    5 /* Public */,
+       7,    1,   63,    2, 0x0a,    8 /* Public */,
+       8,    1,   66,    2, 0x0a,   10 /* Public */,
+       9,    3,   69,    2, 0x0a,   12 /* Public */,
+      11,    1,   76,    2, 0x0a,   16 /* Public */,
 
  // signals: parameters
     QMetaType::Void,
@@ -106,12 +110,13 @@ Q_CONSTINIT static const uint qt_meta_data_Backend[] = {
  // slots: parameters
     QMetaType::Void, QMetaType::QString, QMetaType::QString,    5,    6,
     QMetaType::Void, QMetaType::QString,    5,
-    QMetaType::Void, QMetaType::QString, QMetaType::QString, QMetaType::Int,    5,    6,    9,
+    QMetaType::Void, QMetaType::QString,    5,
+    QMetaType::Void, QMetaType::QString, QMetaType::QString, QMetaType::Int,    5,    6,   10,
     QMetaType::Void, QMetaType::QString,    5,
 
  // properties: name, type, flags
-      11, QMetaType::QStringList, 0x00015001, uint(0), 0,
-      12, QMetaType::QString, 0x00015001, uint(1), 0,
+      12, QMetaType::QStringList, 0x00015001, uint(0), 0,
+      13, QMetaType::QString, 0x00015001, uint(1), 0,
 
        0        // eod
 };
@@ -140,6 +145,9 @@ Q_CONSTINIT const QMetaObject Backend::staticMetaObject = { {
         // method 'supprimer'
         QtPrivate::TypeAndForceComplete<void, std::false_type>,
         QtPrivate::TypeAndForceComplete<const QString &, std::false_type>,
+        // method 'supprimer_all'
+        QtPrivate::TypeAndForceComplete<void, std::false_type>,
+        QtPrivate::TypeAndForceComplete<const QString &, std::false_type>,
         // method 'ajouter_position'
         QtPrivate::TypeAndForceComplete<void, std::false_type>,
         QtPrivate::TypeAndForceComplete<const QString &, std::false_type>,
@@ -162,8 +170,9 @@ void Backend::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, voi
         case 1: _t->messageChanged(); break;
         case 2: _t->ajouter((*reinterpret_cast< std::add_pointer_t<QString>>(_a[1])),(*reinterpret_cast< std::add_pointer_t<QString>>(_a[2]))); break;
         case 3: _t->supprimer((*reinterpret_cast< std::add_pointer_t<QString>>(_a[1]))); break;
-        case 4: _t->ajouter_position((*reinterpret_cast< std::add_pointer_t<QString>>(_a[1])),(*reinterpret_cast< std::add_pointer_t<QString>>(_a[2])),(*reinterpret_cast< std::add_pointer_t<int>>(_a[3]))); break;
-        case 5: _t->rechercher((*reinterpret_cast< std::add_pointer_t<QString>>(_a[1]))); break;
+        case 4: _t->supprimer_all((*reinterpret_cast< std::add_pointer_t<QString>>(_a[1]))); break;
+        case 5: _t->ajouter_position((*reinterpret_cast< std::add_pointer_t<QString>>(_a[1])),(*reinterpret_cast< std::add_pointer_t<QString>>(_a[2])),(*reinterpret_cast< std::add_pointer_t<int>>(_a[3]))); break;
+        case 6: _t->rechercher((*reinterpret_cast< std::add_pointer_t<QString>>(_a[1]))); break;
         default: ;
         }
     } else if (_c == QMetaObject::IndexOfMethod) {
@@ -216,13 +225,13 @@ int Backend::qt_metacall(QMetaObject::Call _c, int _id, void **_a)
     if (_id < 0)
         return _id;
     if (_c == QMetaObject::InvokeMetaMethod) {
-        if (_id < 6)
+        if (_id < 7)
             qt_static_metacall(this, _c, _id, _a);
-        _id -= 6;
+        _id -= 7;
     } else if (_c == QMetaObject::RegisterMethodArgumentMetaType) {
-        if (_id < 6)
+        if (_id < 7)
             *reinterpret_cast<QMetaType *>(_a[0]) = QMetaType();
-        _id -= 6;
+        _id -= 7;
     }else if (_c == QMetaObject::ReadProperty || _c == QMetaObject::WriteProperty
             || _c == QMetaObject::ResetProperty || _c == QMetaObject::BindableProperty
             || _c == QMetaObject::RegisterPropertyMetaType) {

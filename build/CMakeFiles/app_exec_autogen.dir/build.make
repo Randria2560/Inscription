@@ -69,6 +69,7 @@ include CMakeFiles/app_exec_autogen.dir/progress.make
 CMakeFiles/app_exec_autogen: app_exec_autogen/timestamp
 
 app_exec_autogen/timestamp: /usr/lib/qt6/libexec/moc
+app_exec_autogen/timestamp: /usr/lib/qt6/libexec/uic
 app_exec_autogen/timestamp: CMakeFiles/app_exec_autogen.dir/compiler_depend.ts
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --blue --bold --progress-dir=/home/natacha/monprojet/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Automatic MOC and UIC for target app_exec"
 	/usr/bin/cmake -E cmake_autogen /home/natacha/monprojet/build/CMakeFiles/app_exec_autogen.dir/AutogenInfo.json ""

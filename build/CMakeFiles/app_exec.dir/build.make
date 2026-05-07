@@ -82,12 +82,13 @@ app_exec_qmltyperegistrations.cpp: qmltypes/app_exec_foreign_types.txt
 app_exec_qmltyperegistrations.cpp: meta_types/qt6app_exec_metatypes.json
 app_exec_qmltyperegistrations.cpp: /usr/lib/qt6/libexec/qmltyperegistrar
 app_exec_qmltyperegistrations.cpp: /usr/lib/x86_64-linux-gnu/metatypes/qt6core_none_metatypes.json
-app_exec_qmltyperegistrations.cpp: /usr/lib/x86_64-linux-gnu/metatypes/qt6qml_none_metatypes.json
-app_exec_qmltyperegistrations.cpp: /usr/lib/x86_64-linux-gnu/metatypes/qt6network_none_metatypes.json
 app_exec_qmltyperegistrations.cpp: /usr/lib/x86_64-linux-gnu/metatypes/qt6quick_none_metatypes.json
 app_exec_qmltyperegistrations.cpp: /usr/lib/x86_64-linux-gnu/metatypes/qt6gui_none_metatypes.json
+app_exec_qmltyperegistrations.cpp: /usr/lib/x86_64-linux-gnu/metatypes/qt6qml_none_metatypes.json
+app_exec_qmltyperegistrations.cpp: /usr/lib/x86_64-linux-gnu/metatypes/qt6network_none_metatypes.json
 app_exec_qmltyperegistrations.cpp: /usr/lib/x86_64-linux-gnu/metatypes/qt6qmlmodels_none_metatypes.json
 app_exec_qmltyperegistrations.cpp: /usr/lib/x86_64-linux-gnu/metatypes/qt6opengl_none_metatypes.json
+app_exec_qmltyperegistrations.cpp: /usr/lib/x86_64-linux-gnu/metatypes/qt6widgets_none_metatypes.json
 app_exec_qmltyperegistrations.cpp: /usr/lib/x86_64-linux-gnu/metatypes/qt6quickcontrols2_none_metatypes.json
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --blue --bold --progress-dir=/home/natacha/monprojet/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Automatic QML type registration for target app_exec"
 	/usr/lib/qt6/libexec/qmltyperegistrar --generate-qmltypes=/home/natacha/monprojet/build/monapp/app_exec.qmltypes --import-name=monapp --major-version=1 --minor-version=0 @/home/natacha/monprojet/build/qmltypes/app_exec_foreign_types.txt -o /home/natacha/monprojet/build/app_exec_qmltyperegistrations.cpp /home/natacha/monprojet/build/meta_types/qt6app_exec_metatypes.json
@@ -127,6 +128,7 @@ monapp/app_exec.qmltypes: app_exec_qmltyperegistrations.cpp
 	/usr/lib/qt6/libexec/rcc --output /home/natacha/monprojet/build/.rcc/qrc_app_exec_raw_qml_0.cpp --name app_exec_raw_qml_0 /home/natacha/monprojet/build/.rcc/app_exec_raw_qml_0.qrc
 
 app_exec_autogen/timestamp: /usr/lib/qt6/libexec/moc
+app_exec_autogen/timestamp: /usr/lib/qt6/libexec/uic
 app_exec_autogen/timestamp: CMakeFiles/app_exec.dir/compiler_depend.ts
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --blue --bold --progress-dir=/home/natacha/monprojet/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Automatic MOC and UIC for target app_exec"
 	/usr/bin/cmake -E cmake_autogen /home/natacha/monprojet/build/CMakeFiles/app_exec_autogen.dir/AutogenInfo.json ""
@@ -160,33 +162,33 @@ CMakeFiles/app_exec.dir/main.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/app_exec.dir/main.cpp.s"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/natacha/monprojet/main.cpp -o CMakeFiles/app_exec.dir/main.cpp.s
 
-CMakeFiles/app_exec.dir/backend.cpp.o: CMakeFiles/app_exec.dir/flags.make
-CMakeFiles/app_exec.dir/backend.cpp.o: /home/natacha/monprojet/backend.cpp
-CMakeFiles/app_exec.dir/backend.cpp.o: CMakeFiles/app_exec.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/natacha/monprojet/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_10) "Building CXX object CMakeFiles/app_exec.dir/backend.cpp.o"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/app_exec.dir/backend.cpp.o -MF CMakeFiles/app_exec.dir/backend.cpp.o.d -o CMakeFiles/app_exec.dir/backend.cpp.o -c /home/natacha/monprojet/backend.cpp
+CMakeFiles/app_exec.dir/Backend.cpp.o: CMakeFiles/app_exec.dir/flags.make
+CMakeFiles/app_exec.dir/Backend.cpp.o: /home/natacha/monprojet/Backend.cpp
+CMakeFiles/app_exec.dir/Backend.cpp.o: CMakeFiles/app_exec.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/natacha/monprojet/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_10) "Building CXX object CMakeFiles/app_exec.dir/Backend.cpp.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/app_exec.dir/Backend.cpp.o -MF CMakeFiles/app_exec.dir/Backend.cpp.o.d -o CMakeFiles/app_exec.dir/Backend.cpp.o -c /home/natacha/monprojet/Backend.cpp
 
-CMakeFiles/app_exec.dir/backend.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/app_exec.dir/backend.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/natacha/monprojet/backend.cpp > CMakeFiles/app_exec.dir/backend.cpp.i
+CMakeFiles/app_exec.dir/Backend.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/app_exec.dir/Backend.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/natacha/monprojet/Backend.cpp > CMakeFiles/app_exec.dir/Backend.cpp.i
 
-CMakeFiles/app_exec.dir/backend.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/app_exec.dir/backend.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/natacha/monprojet/backend.cpp -o CMakeFiles/app_exec.dir/backend.cpp.s
+CMakeFiles/app_exec.dir/Backend.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/app_exec.dir/Backend.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/natacha/monprojet/Backend.cpp -o CMakeFiles/app_exec.dir/Backend.cpp.s
 
-CMakeFiles/app_exec.dir/personne.cpp.o: CMakeFiles/app_exec.dir/flags.make
-CMakeFiles/app_exec.dir/personne.cpp.o: /home/natacha/monprojet/personne.cpp
-CMakeFiles/app_exec.dir/personne.cpp.o: CMakeFiles/app_exec.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/natacha/monprojet/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_11) "Building CXX object CMakeFiles/app_exec.dir/personne.cpp.o"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/app_exec.dir/personne.cpp.o -MF CMakeFiles/app_exec.dir/personne.cpp.o.d -o CMakeFiles/app_exec.dir/personne.cpp.o -c /home/natacha/monprojet/personne.cpp
+CMakeFiles/app_exec.dir/Personne.cpp.o: CMakeFiles/app_exec.dir/flags.make
+CMakeFiles/app_exec.dir/Personne.cpp.o: /home/natacha/monprojet/Personne.cpp
+CMakeFiles/app_exec.dir/Personne.cpp.o: CMakeFiles/app_exec.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/natacha/monprojet/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_11) "Building CXX object CMakeFiles/app_exec.dir/Personne.cpp.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/app_exec.dir/Personne.cpp.o -MF CMakeFiles/app_exec.dir/Personne.cpp.o.d -o CMakeFiles/app_exec.dir/Personne.cpp.o -c /home/natacha/monprojet/Personne.cpp
 
-CMakeFiles/app_exec.dir/personne.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/app_exec.dir/personne.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/natacha/monprojet/personne.cpp > CMakeFiles/app_exec.dir/personne.cpp.i
+CMakeFiles/app_exec.dir/Personne.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/app_exec.dir/Personne.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/natacha/monprojet/Personne.cpp > CMakeFiles/app_exec.dir/Personne.cpp.i
 
-CMakeFiles/app_exec.dir/personne.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/app_exec.dir/personne.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/natacha/monprojet/personne.cpp -o CMakeFiles/app_exec.dir/personne.cpp.s
+CMakeFiles/app_exec.dir/Personne.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/app_exec.dir/Personne.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/natacha/monprojet/Personne.cpp -o CMakeFiles/app_exec.dir/Personne.cpp.s
 
 CMakeFiles/app_exec.dir/app_exec_qmltyperegistrations.cpp.o: CMakeFiles/app_exec.dir/flags.make
 CMakeFiles/app_exec.dir/app_exec_qmltyperegistrations.cpp.o: app_exec_qmltyperegistrations.cpp
@@ -262,8 +264,8 @@ CMakeFiles/app_exec.dir/build/.rcc/qrc_app_exec_raw_qml_0.cpp.s: cmake_force
 app_exec_OBJECTS = \
 "CMakeFiles/app_exec.dir/app_exec_autogen/mocs_compilation.cpp.o" \
 "CMakeFiles/app_exec.dir/main.cpp.o" \
-"CMakeFiles/app_exec.dir/backend.cpp.o" \
-"CMakeFiles/app_exec.dir/personne.cpp.o" \
+"CMakeFiles/app_exec.dir/Backend.cpp.o" \
+"CMakeFiles/app_exec.dir/Personne.cpp.o" \
 "CMakeFiles/app_exec.dir/app_exec_qmltyperegistrations.cpp.o" \
 "CMakeFiles/app_exec.dir/build/.rcc/qrc_qmake_monapp.cpp.o" \
 "CMakeFiles/app_exec.dir/build/.rcc/qmlcache/app_exec_qmlcache_loader.cpp.o" \
@@ -275,14 +277,15 @@ app_exec_EXTERNAL_OBJECTS =
 
 app_exec: CMakeFiles/app_exec.dir/app_exec_autogen/mocs_compilation.cpp.o
 app_exec: CMakeFiles/app_exec.dir/main.cpp.o
-app_exec: CMakeFiles/app_exec.dir/backend.cpp.o
-app_exec: CMakeFiles/app_exec.dir/personne.cpp.o
+app_exec: CMakeFiles/app_exec.dir/Backend.cpp.o
+app_exec: CMakeFiles/app_exec.dir/Personne.cpp.o
 app_exec: CMakeFiles/app_exec.dir/app_exec_qmltyperegistrations.cpp.o
 app_exec: CMakeFiles/app_exec.dir/build/.rcc/qrc_qmake_monapp.cpp.o
 app_exec: CMakeFiles/app_exec.dir/build/.rcc/qmlcache/app_exec_qmlcache_loader.cpp.o
 app_exec: CMakeFiles/app_exec.dir/build/.rcc/qmlcache/app_exec_main_qml.cpp.o
 app_exec: CMakeFiles/app_exec.dir/build/.rcc/qrc_app_exec_raw_qml_0.cpp.o
 app_exec: CMakeFiles/app_exec.dir/build.make
+app_exec: /usr/lib/x86_64-linux-gnu/libQt6Widgets.so.6.4.2
 app_exec: /usr/lib/x86_64-linux-gnu/libQt6QuickControls2.so.6.4.2
 app_exec: /usr/lib/x86_64-linux-gnu/libQt6Quick.so.6.4.2
 app_exec: /usr/lib/x86_64-linux-gnu/libQt6QmlModels.so.6.4.2

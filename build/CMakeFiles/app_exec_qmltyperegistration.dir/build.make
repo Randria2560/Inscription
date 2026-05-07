@@ -73,12 +73,13 @@ app_exec_qmltyperegistrations.cpp: qmltypes/app_exec_foreign_types.txt
 app_exec_qmltyperegistrations.cpp: meta_types/qt6app_exec_metatypes.json
 app_exec_qmltyperegistrations.cpp: /usr/lib/qt6/libexec/qmltyperegistrar
 app_exec_qmltyperegistrations.cpp: /usr/lib/x86_64-linux-gnu/metatypes/qt6core_none_metatypes.json
-app_exec_qmltyperegistrations.cpp: /usr/lib/x86_64-linux-gnu/metatypes/qt6qml_none_metatypes.json
-app_exec_qmltyperegistrations.cpp: /usr/lib/x86_64-linux-gnu/metatypes/qt6network_none_metatypes.json
 app_exec_qmltyperegistrations.cpp: /usr/lib/x86_64-linux-gnu/metatypes/qt6quick_none_metatypes.json
 app_exec_qmltyperegistrations.cpp: /usr/lib/x86_64-linux-gnu/metatypes/qt6gui_none_metatypes.json
+app_exec_qmltyperegistrations.cpp: /usr/lib/x86_64-linux-gnu/metatypes/qt6qml_none_metatypes.json
+app_exec_qmltyperegistrations.cpp: /usr/lib/x86_64-linux-gnu/metatypes/qt6network_none_metatypes.json
 app_exec_qmltyperegistrations.cpp: /usr/lib/x86_64-linux-gnu/metatypes/qt6qmlmodels_none_metatypes.json
 app_exec_qmltyperegistrations.cpp: /usr/lib/x86_64-linux-gnu/metatypes/qt6opengl_none_metatypes.json
+app_exec_qmltyperegistrations.cpp: /usr/lib/x86_64-linux-gnu/metatypes/qt6widgets_none_metatypes.json
 app_exec_qmltyperegistrations.cpp: /usr/lib/x86_64-linux-gnu/metatypes/qt6quickcontrols2_none_metatypes.json
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --blue --bold --progress-dir=/home/natacha/monprojet/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Automatic QML type registration for target app_exec"
 	/usr/lib/qt6/libexec/qmltyperegistrar --generate-qmltypes=/home/natacha/monprojet/build/monapp/app_exec.qmltypes --import-name=monapp --major-version=1 --minor-version=0 @/home/natacha/monprojet/build/qmltypes/app_exec_foreign_types.txt -o /home/natacha/monprojet/build/app_exec_qmltyperegistrations.cpp /home/natacha/monprojet/build/meta_types/qt6app_exec_metatypes.json

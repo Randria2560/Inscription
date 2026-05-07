@@ -11,16 +11,25 @@ set(CMAKE_AUTOUIC ON)
 
 find_package(Qt6 REQUIRED COMPONENTS Quick QuickControls2)
 
-# 🔥 CHANGEMENT ICI : nom de l'exécutable
+#nom de l'exécutable
 qt_add_executable(app_exec
     main.cpp
-    backend.h
-    backend.cpp
-    personne.h
-    personne.cpp
+    Backend.h
+    Backend.cpp
+    Personne.h
+    Personne.cpp
 )
 
-# ⚠️ ON LAISSE monapp ICI (module QML)
+find_package(Qt6 REQUIRED COMPONENTS
+    Quick
+    Widgets
+)
+target_link_libraries(app_exec
+    PRIVATE Qt6::Quick
+    Qt6::Widgets
+)
+
+#ON LAISSE monapp ICI (module QML)
 qt_add_qml_module(app_exec
     URI monapp
     VERSION 1.0

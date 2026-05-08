@@ -1,0 +1,202 @@
+{
+    "classes": [
+        {
+            "className": "Backend",
+            "object": true,
+            "properties": [
+                {
+                    "constant": false,
+                    "designable": true,
+                    "final": false,
+                    "index": 0,
+                    "name": "listeModel",
+                    "notify": "listeChanged",
+                    "read": "listeModel",
+                    "required": false,
+                    "scriptable": true,
+                    "stored": true,
+                    "type": "QStringList",
+                    "user": false
+                }
+            ],
+            "qualifiedClassName": "Backend",
+            "signals": [
+                {
+                    "access": "public",
+                    "name": "listeChanged",
+                    "returnType": "void"
+                },
+                {
+                    "access": "public",
+                    "arguments": [
+                        {
+                            "name": "text",
+                            "type": "QString"
+                        }
+                    ],
+                    "name": "ajoutTexte",
+                    "returnType": "void"
+                },
+                {
+                    "access": "public",
+                    "arguments": [
+                        {
+                            "name": "nouvellePage",
+                            "type": "int"
+                        }
+                    ],
+                    "name": "chargerPage",
+                    "returnType": "void"
+                }
+            ],
+            "slots": [
+                {
+                    "access": "public",
+                    "arguments": [
+                        {
+                            "name": "nom",
+                            "type": "QString"
+                        },
+                        {
+                            "name": "prenom",
+                            "type": "QString"
+                        },
+                        {
+                            "name": "sexe",
+                            "type": "QString"
+                        },
+                        {
+                            "name": "date",
+                            "type": "QString"
+                        },
+                        {
+                            "name": "lieu",
+                            "type": "QString"
+                        },
+                        {
+                            "name": "adresse",
+                            "type": "QString"
+                        },
+                        {
+                            "name": "niveau",
+                            "type": "QString"
+                        },
+                        {
+                            "name": "filiere",
+                            "type": "QString"
+                        }
+                    ],
+                    "name": "ajouter",
+                    "returnType": "void"
+                },
+                {
+                    "access": "public",
+                    "arguments": [
+                        {
+                            "name": "nom",
+                            "type": "QString"
+                        }
+                    ],
+                    "name": "supprimer",
+                    "returnType": "void"
+                },
+                {
+                    "access": "public",
+                    "arguments": [
+                        {
+                            "name": "nom",
+                            "type": "QString"
+                        }
+                    ],
+                    "name": "supprimer_all",
+                    "returnType": "void"
+                },
+                {
+                    "access": "public",
+                    "arguments": [
+                        {
+                            "name": "nom",
+                            "type": "QString"
+                        },
+                        {
+                            "name": "personne",
+                            "type": "QString"
+                        },
+                        {
+                            "name": "pos",
+                            "type": "int"
+                        }
+                    ],
+                    "name": "ajouter_position",
+                    "returnType": "void"
+                },
+                {
+                    "access": "public",
+                    "arguments": [
+                        {
+                            "name": "val",
+                            "type": "QString"
+                        },
+                        {
+                            "name": "choix",
+                            "type": "QString"
+                        }
+                    ],
+                    "name": "rechercher",
+                    "returnType": "void"
+                },
+                {
+                    "access": "public",
+                    "name": "enregistrement",
+                    "returnType": "void"
+                },
+                {
+                    "access": "public",
+                    "arguments": [
+                        {
+                            "name": "choix",
+                            "type": "QString"
+                        }
+                    ],
+                    "name": "afficher",
+                    "returnType": "void"
+                },
+                {
+                    "access": "public",
+                    "name": "ouvrir",
+                    "returnType": "void"
+                },
+                {
+                    "access": "public",
+                    "arguments": [
+                        {
+                            "name": "text",
+                            "type": "QString"
+                        }
+                    ],
+                    "name": "save_as",
+                    "returnType": "void"
+                },
+                {
+                    "access": "public",
+                    "arguments": [
+                        {
+                            "name": "text",
+                            "type": "QString"
+                        }
+                    ],
+                    "name": "save",
+                    "returnType": "void"
+                }
+            ],
+            "superClasses": [
+                {
+                    "access": "public",
+                    "name": "QObject"
+                }
+            ]
+        }
+    ],
+    "inputFile": "Backend.h",
+    "outputRevision": 68
+}

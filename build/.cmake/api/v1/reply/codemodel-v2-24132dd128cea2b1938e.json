@@ -1,0 +1,168 @@
+{
+	"configurations" : 
+	[
+		{
+			"directories" : 
+			[
+				{
+					"build" : ".",
+					"jsonFile" : "directory-.-f5ebdc15457944623624.json",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.16"
+					},
+					"projectIndex" : 0,
+					"source" : ".",
+					"targetIndexes" : 
+					[
+						0,
+						1,
+						2,
+						3,
+						4,
+						5,
+						6,
+						7,
+						8,
+						9,
+						10,
+						11,
+						12
+					]
+				}
+			],
+			"name" : "",
+			"projects" : 
+			[
+				{
+					"directoryIndexes" : 
+					[
+						0
+					],
+					"name" : "monapp",
+					"targetIndexes" : 
+					[
+						0,
+						1,
+						2,
+						3,
+						4,
+						5,
+						6,
+						7,
+						8,
+						9,
+						10,
+						11,
+						12
+					]
+				}
+			],
+			"targets" : 
+			[
+				{
+					"directoryIndex" : 0,
+					"id" : "all_qmllint::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-all_qmllint-b75d1d018034801ee249.json",
+					"name" : "all_qmllint",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "all_qmllint_json::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-all_qmllint_json-8b1bbb4787b4efaa60b1.json",
+					"name" : "all_qmllint_json",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "all_qmltyperegistrations::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-all_qmltyperegistrations-48c02d3efee74fa06a76.json",
+					"name" : "all_qmltyperegistrations",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "app_exec::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-app_exec-a30c91132f66b37caca8.json",
+					"name" : "app_exec",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "app_exec_autogen::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-app_exec_autogen-0e69af045923296af967.json",
+					"name" : "app_exec_autogen",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "app_exec_autogen_timestamp_deps::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-app_exec_autogen_timestamp_deps-76c7fa180645aaa24e0e.json",
+					"name" : "app_exec_autogen_timestamp_deps",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "app_exec_automoc_json_extraction::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-app_exec_automoc_json_extraction-7e84c0964bae0828068e.json",
+					"name" : "app_exec_automoc_json_extraction",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "app_exec_other_files::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-app_exec_other_files-014acaf2d34b9df01ac3.json",
+					"name" : "app_exec_other_files",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "app_exec_qmlimportscan::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-app_exec_qmlimportscan-34a23f0e02b39d4f41c3.json",
+					"name" : "app_exec_qmlimportscan",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "app_exec_qmllint::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-app_exec_qmllint-547b79968719528f5d5d.json",
+					"name" : "app_exec_qmllint",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "app_exec_qmllint_json::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-app_exec_qmllint_json-4c95877ceef2bbef4866.json",
+					"name" : "app_exec_qmllint_json",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "app_exec_qmltyperegistration::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-app_exec_qmltyperegistration-d37b55d9783f028ef680.json",
+					"name" : "app_exec_qmltyperegistration",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "app_exec_tooling::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-app_exec_tooling-38ec8605595f85a0c80a.json",
+					"name" : "app_exec_tooling",
+					"projectIndex" : 0
+				}
+			]
+		}
+	],
+	"kind" : "codemodel",
+	"paths" : 
+	{
+		"build" : "/home/natacha/monprojet/build",
+		"source" : "/home/natacha/monprojet"
+	},
+	"version" : 
+	{
+		"major" : 2,
+		"minor" : 6
+	}
+}

@@ -15,6 +15,10 @@ class Backend : public QObject
                    READ listeModel
                        NOTIFY listeChanged)
 
+
+    //2eme slot du text area:
+
+
 public:
     explicit Backend(QObject *parent = nullptr);
 
@@ -23,7 +27,6 @@ public:
     void sauvegarderFichier();
     void chargerFichier();
     QStringList listeModel() const;
-    void enregistrement();
 
 
 public slots:
@@ -39,15 +42,23 @@ public slots:
 
     Q_INVOKABLE void rechercher(const QString &val, const QString &choix);
 
+    Q_INVOKABLE void enregistrement();
+    Q_INVOKABLE void afficher(const QString &choix);
+
+
 
     /*File==================*/
     Q_INVOKABLE void ouvrir();
-    Q_INVOKABLE void save_as();
-    Q_INVOKABLE void save();
+    Q_INVOKABLE void save_as(const QString &text);
+    Q_INVOKABLE void save(const QString &text);
+
 
 
 signals:
     void listeChanged();
+    void ajoutTexte(const QString &text);
+    void chargerPage(int nouvellePage);
+
 
 private:
     QVector<Personne> liste_personne;

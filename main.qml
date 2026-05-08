@@ -7,7 +7,7 @@ import QtQuick.Controls.Material 2.12
 
 ApplicationWindow{
     visible: true
-    title: qsTr("MyBD sur l'inscription")
+    title: qsTr("MyBD sur L'inscription")
     width: 700
     height: 700
     Material.theme: Material.Light
@@ -37,22 +37,23 @@ ApplicationWindow{
             //affiche un message de Dialog et quitter
             Backend.enregistrement()
             dialog1.message="Enregistrement OK"
+            dialog.open()
             Qt.quit()
         }
         onRejected:{
             dialog1.message="Non enregistrement "
+            dialog.open()
             Qt.quit()
         }
     }
 
     onClosing:
             function(close){
-                close.accepted = true
+                close.accepted = false
                 dialog1.open()
             }
 
-
-
+    //
 
     menuBar:MenuBar{
         Menu{
@@ -78,20 +79,24 @@ ApplicationWindow{
             title:qsTr("File")
             MenuItem{
                 text:qsTr("Open   <<Ctrl+O>>")
-                Backend.ouvrir()
-
+                onTriggered:{
+                    //page=1
+                    Backend.ouvrir()
+                }
             }
             MenuItem{
-                text:qsTr("Save as <<Ctrl+S>>")
-                Backend.save_as()
+                text:qsTr("Save as   <<Ctrl+S>>")
+                onTriggered:{
+                    Backend.save_as(zoneTexte.text)
+                }
             }
             MenuItem{
-                text:qsTr("Save <<Ctrl+P>>")
-                Backend.save()
+                text:qsTr("Save   <<Ctrl+P>>")
+                onTriggered:{
+                    Backend.save(zoneTexte.text)
+                }
             }
-
         }
-
     }
     header: ToolBar{
         RowLayout{
@@ -99,23 +104,29 @@ ApplicationWindow{
             spacing: 10
             ToolButton{
                 text: "🏠 Accueil"
-
                 onClicked: page = 0
-
             }
             ToolButton{
                 text: "📝 TextArea"
-
                 onClicked:  page = 1
-
             }
         }
     }
 
-    //Les raccourcis clavier:
+    //Les raccourcis clavier sur les fichiers:
 
 
     //page de textarea:
+    Connections{
+        target: Backend
+        function onAjoutTexte(text){
+            zoneTexte.text = text
+        }
+        function onChargerPage(nouvellePage){
+            page = nouvellePage
+        }
+    }
+
     Rectangle {
         visible: page === 1
         anchors.fill: parent
@@ -127,8 +138,13 @@ ApplicationWindow{
             wrapMode: TextArea.Wrap
             placeholderText: "Écrire ici..."
             textFormat: TextEdit.PlainText
+            /*ajouter le Texte: dans Backend*/
+
         }
     }
+
+
+
 
     //les raccourcis clavier si on ne passe pas par le menu:
     Shortcut{
@@ -143,14 +159,41 @@ ApplicationWindow{
         sequence: "Ctrl+V"
         onActivated: zoneTexte.paste()
     }
+
     Shortcut{
-        sequence: "Ctrl+A"
+        sequence: "Ctrl+O"
+        onActivated: Backend.ouvrir(zoneTexte.text)
+    }
+    Shortcut{
+        sequence: "Ctrl+S"
+        onActivated: Backend.save(zoneTexte.text)
+    }
+    Shortcut{
+        sequence: "Ctrl+P"
+        onActivated: Backend.save_as(zoneTexte.text)
+    }
+
+
+    //les raccourcis files===========================================
+    Shortcut{
+        sequence: "Ctrl+0"
+        onActivated: Backend.ouvrir()
+    }
+    Shortcut{
+        sequence: "Ctrl+S"
+        onActivated: zoneTexte.selectAll()
+    }
+    Shortcut{
+        sequence: "Ctrl+P"
         onActivated: zoneTexte.selectAll()
     }
 
 
 
-    //srollbar et fromulaire ajouter et supprimer:
+
+
+
+    //scrollbar et formulaire ajouter et supprimer
     Column {
         visible: page == 0
         anchors.fill: parent
@@ -232,7 +275,6 @@ ApplicationWindow{
 
 
                     RowLayout{
-
                         Text {
                             text: "Date de naissance : "
                         }
@@ -407,15 +449,13 @@ ApplicationWindow{
                                 )
                             pos_nom.text = ""
                             pos_index.text = ""
-                            pos_password= ""
+                            pos_password.text= ""
                         }
                     }
 
 
                     /*=================Rechercher avec beaucoup d'options:=========================================*/
-
                     RowLayout{
-
                         Text{
                             text: "Rechercher selon: ";
                             font.bold: true
@@ -443,7 +483,6 @@ ApplicationWindow{
                                 Backend.rechercher(search_nom.text , mainColumn.choix)
                         }
                     }
-
                     /*==========================*/
 
                 }
@@ -500,7 +539,83 @@ ApplicationWindow{
 
                             MouseArea {
                                 anchors.fill: parent
-                                onClicked: liste_view.currentIndex = index
+                                onClicked: {
+                                    liste_view.currentIndex = index
+                                    menu2.x = parent.width * 0.7
+                                    menu2.open()
+
+                                }
+                                    Menu{
+                                        id: menu2
+                                        cascade: true
+
+
+                                        Menu{
+                                            title :"Editer"
+                                            //icon.name: "document-edit"
+                                            MenuItem{
+                                                text: "Nom"
+                                                onTriggered: Backend.afficher("nom")
+                                            }
+                                            MenuItem{
+                                                text: "Prenom"
+                                                onTriggered: Backend.afficher("prenom")
+                                            }
+                                            MenuItem{
+                                                text :"Date_Naissance"
+                                                onTriggered: Backend.afficher("date")
+                                            }
+                                            MenuItem{
+                                                text :"Lieu_Naissance"
+                                                onTriggered: Backend.afficher("lieu")
+                                            }
+                                            MenuItem{
+                                                text :"Adresse"
+                                                onTriggered: Backend.afficher("adresse")
+                                            }
+                                            MenuItem{
+                                                text :"Sexe"
+                                                onTriggered: Backend.afficher("sexe")
+                                            }
+                                            MenuItem{
+                                                text :"Niveau"
+                                                onTriggered: Backend.afficher("niveau")
+                                            }
+                                            MenuItem{
+                                                text :"Filière"
+                                                onTriggered: Backend.afficher("filiere")
+                                            }
+
+                                        }
+                                        Menu{
+                                            title :"Modifier"
+                                            //icon.name :"document.edit"
+                                            MenuItem{
+                                                text :"Supprimer"
+                                                icon.name :"delete"
+                                                onTriggered: Backend.afficher("supprimer")
+                                            }
+                                            /*Pas de fonction==================================*/
+                                            Menu{
+                                                title :"Ajouter"
+                                                //icon.name :"list-add"
+                                                MenuItem{
+                                                    text :"A la fin"
+                                                    onTriggered: Backend.afficher("fin")
+                                                }
+                                                MenuItem{
+                                                    text :"Une position"
+                                                    onTriggered: Backend.afficher("pos")
+                                                }
+                                            }
+                                            MenuItem{
+                                                text :"Rechercher"
+                                                icon.name: "edit-find"
+                                                onTriggered: Backend.afficher("search")
+                                            }
+                                        }
+                                    }
+
                             }
                         }
                     }
